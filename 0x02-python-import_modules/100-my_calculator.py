@@ -8,12 +8,11 @@ if __name__ == "__main__":
         exit(1)
 
     funcs= {"+": add, "-": sub, "*": mul, "/": div}
-    operator = argv[2]
-    if operator not in funcs:
+    o = argv[2]
+    if o not in funcs:
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
 
     a = int(argv[1])
     b = int (argv[3])
-    print("{:d} {:s} {:d} =",
-            "{:d}".format(a, operator, b, funcs[operator](a, b)))
+    print("{:d} {:s} {:d} ={:d}".format(a, o, b, funcs[o](a, b)))
