@@ -3,8 +3,9 @@ from calculator_1 import add, sub, mul, div
 from sys import argv
 
 if __name__ == "__main__":
-    if len(argv) != 4:
-        print("Usage:", argv[0], "<a> <operator> <b>")
+    ac = len(argv)
+    if ac != 4:
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
 
     funcs= {"+": add, "-": sub, "*": mul, "/": div}
