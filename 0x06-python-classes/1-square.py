@@ -19,4 +19,4 @@ class Square:
         Attributes:
             size: size of a side of square
         """
-        self.__size = size1-square.py
+        self.__size = size
