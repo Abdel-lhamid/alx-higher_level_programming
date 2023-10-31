@@ -4,6 +4,7 @@ Module 2-rectangle
 Contains class Rectangle with private attribute width and height
 """
 
+
 class Rectangle:
     """
     Defines class rectangle with private attribute width and height
@@ -51,4 +52,3 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-
