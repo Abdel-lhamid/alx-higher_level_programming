@@ -5,6 +5,7 @@ Contains Rectangle Class
 Empty
 """
 
+
 class Rectangle():
     """
     Defines empty class rectangle
