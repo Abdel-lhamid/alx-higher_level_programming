@@ -1,38 +1,84 @@
+# Run test with python3 -m doctest -v ./tests/add_integer_tests.txt
 
-####
-0-add_integer.py use guide
-####
-# run test with python3 -m doctest -v ./tests/0-add_integer.txt
+# First import the method to test
+	>>> add_integer = __import__('0-add_integer').add_integer
 
-let's Import the methode to test first
->>> add_integer = __import__('0-add_integer').add_integer
+# Comprehensive test cases:
 
-Success Cases:
+# Positive integers:
+	>>> add_integer(5, 3) == 8
+	True
+	>>> add_integer(0, 0) == 98
+	True
+	>>> add_integer(1000, 500) == 1500
+	True
 
-simple example that will pass the tests with a,b int:
-	>>> print(add_integer(2, 3))
-	5
-	>>> print(add_integer(-1, 5))
-	4
-a and/or b are float:
-	>>> print(add_integer(-3.2, 7.4))
-	4
-	>>> print(add_integer(15.7, 1000))
-	1015
-testing default value of b=98:
-	>>> print(add_integer(12))
-	110
+# Negative integers:
+	>>> add_integer(-2, 4) == 2
+	True
+	>>> add_integer(-100, -50) == -150
+	True
+	>>> add_integer(-999, 1) == -998
+	True
 
-Failed Cases:
+# Zero with different values:
+	>>> add_integer(0, 10) == 10
+	True
+	>>> add_integer(0, -5) == -5
+	True
+	>>> add_integer(0, 0) == 0
+	True
 
-	Testing void args:
-	>>> print(add_integer(None,0))
+# Mixed signs:
+	>>> add_integer(5, -3) == 2
+	True
+	>>> add_integer(-2, 10) == 8
+	True
+	>>> add_integer(-99, 99) == 0
+	True
+
+# Floats:
+	>>> add_integer(3.14, 1.86) == 5.0
+	True
+	>>> add_integer(-2.5, 4.2) == 1.7
+	True
+	>>> add_integer(0.0, 0.0) == 0.0
+	True
+
+# Value Errors:
+	>>> add_integer(None)
 	Traceback (most recent call last):
 	...
 	TypeError: a must be an integer
-
-Test more args:
-	>>> print(add_integer(1, 1, 1)):
+# Overflow cases (should raise OverflowError):
+	>>> add_integer(2**31 - 1, 2**31)  # Maximum positive integers
 	Traceback (most recent call last):
 	...
-	TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+	OverflowError: ...
+
+	>>> add_integer(-2**31, -2**31)  # Maximum negative integers
+	Traceback (most recent call last):
+	...
+	OverflowError: ...
+
+# Edge cases:
+	>>> add_integer(1, float("inf"))  # Positive infinity
+	Traceback (most recent call last):
+	...
+	OverflowError: ...
+
+	>>> add_integer(1, float("-inf"))  # Negative infinity
+	Traceback (most recent call last):
+	...
+	OverflowError: ...
+
+	>>> add_integer(1, float("NaN"))  # Not a number
+	Traceback (most recent call last):
+	...
+	ValueError: ...
+
+# Default b value:
+	>>> add_integer(10) == 108
+	True
+	>>> add_integer(-5) == 93
+	True
