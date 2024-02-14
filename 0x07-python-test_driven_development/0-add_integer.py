@@ -4,6 +4,7 @@ add-integer
 Methode to return int sum of 2 ints
 """
 
+
 def add_integer(a, b=98):
     """
     Returns sum of a and b as int
@@ -13,5 +14,4 @@ def add_integer(a, b=98):
     elif not isinstance(b, (int, float)):
         raise TypeError("b must be an integer")
     else:
-        return ( int(a) + int(b))
-
+        return (int(a) + int(b))
