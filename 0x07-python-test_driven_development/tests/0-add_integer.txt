@@ -1,84 +1,60 @@
-# Run test with python3 -m doctest -v ./tests/add_integer_tests.txt
+# run test with python3 -m doctest -v ./tests/0-add_integer.txt
 
-# First import the method to test
-	>>> add_integer = __import__('0-add_integer').add_integer
+First import the method to test
+>>> add_func = __import__('0-add_integer').add_integer
 
-# Comprehensive test cases:
+SUCCESS CASES:
 
-# Positive integers:
-	>>> add_integer(5, 3) == 8
-	True
-	>>> add_integer(0, 0) == 98
-	True
-	>>> add_integer(1000, 500) == 1500
-	True
+Test using the default b value (b=98):
+	>>> print(add_func(5))
+	103
 
-# Negative integers:
-	>>> add_integer(-2, 4) == 2
-	True
-	>>> add_integer(-100, -50) == -150
-	True
-	>>> add_integer(-999, 1) == -998
-	True
+Test different integers and floats:
+	>>> print(add_func(-2, 5))
+	3
 
-# Zero with different values:
-	>>> add_integer(0, 10) == 10
-	True
-	>>> add_integer(0, -5) == -5
-	True
-	>>> add_integer(0, 0) == 0
-	True
+	>>> print(add_func(-3.5, 1))
+	-2
 
-# Mixed signs:
-	>>> add_integer(5, -3) == 2
-	True
-	>>> add_integer(-2, 10) == 8
-	True
-	>>> add_integer(-99, 99) == 0
-	True
+	>>> print(add_func(1.2, 2.8)))
+	3
 
-# Floats:
-	>>> add_integer(3.14, 1.86) == 5.0
-	True
-	>>> add_integer(-2.5, 4.2) == 1.7
-	True
-	>>> add_integer(0.0, 0.0) == 0.0
-	True
+	>>> print(add_func(3, 4))
+	7
 
-# Value Errors:
-	>>> add_integer(None)
+FAIL CASES:
+
+No args:
+	>>> print(add_func(None, None))
 	Traceback (most recent call last):
 	...
 	TypeError: a must be an integer
-# Overflow cases (should raise OverflowError):
-	>>> add_integer(2**31 - 1, 2**31)  # Maximum positive integers
+	>>> print(add_func(None))
 	Traceback (most recent call last):
 	...
-	OverflowError: ...
+	TypeError: a must be an integer
 
-	>>> add_integer(-2**31, -2**31)  # Maximum negative integers
+Other data types:
+	>>> print(add_func("ALX"))
 	Traceback (most recent call last):
 	...
-	OverflowError: ...
-
-# Edge cases:
-	>>> add_integer(1, float("inf"))  # Positive infinity
+	TypeError: a must be an integer
+	>>> print(add_func("hello", "world"))
 	Traceback (most recent call last):
 	...
-	OverflowError: ...
-
-	>>> add_integer(1, float("-inf"))  # Negative infinity
+	TypeError: a must be an integer
+	>>> print(add_func(0, [7, 22]))
 	Traceback (most recent call last):
 	...
-	OverflowError: ...
+	TypeError: b must be an integer
 
-	>>> add_integer(1, float("NaN"))  # Not a number
+Extra args:
+	>>> print(add_func(-1, 1, 2, 3))
 	Traceback (most recent call last):
 	...
-	ValueError: ...
+	TypeError: add_func() takes from 1 to 2 positional arguments but 4 were given
 
-# Default b value:
-	>>> add_integer(10) == 108
-	True
-	>>> add_integer(-5) == 93
-	True
+NaN numbers:
+	>>> print(add_func(float('nan'))
+	Traceback (most recent call last):
+	ValueError: cannot convert float NaN to integer

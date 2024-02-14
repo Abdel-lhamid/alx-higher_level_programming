@@ -4,7 +4,7 @@ add-integer
 Methode to return int sum of 2 ints
 """
 
-def add_integer(a, b=98)
+def add_integer(a, b=98):
     """
     Returns sum of a and b as int
     """
