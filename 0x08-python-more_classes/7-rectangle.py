@@ -61,7 +61,7 @@ class Rectangle:
         """ Prints rectangle with print symbol """
         if self.__width == 0 or self.__height == 0:
             return ""
-        pic = "\n".join([self.__print_symbol * self.__width for rows in range(self.__height)])
+        pic = "\n".join([self.print_symbol * self.__width for rows in range(self.__height)])
         return pic
 
     def __repr__(self):
