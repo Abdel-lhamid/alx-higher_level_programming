@@ -6,7 +6,7 @@ public area and perimeter methods, and allows printing.
 """
 
 
-class Rectangel:
+class Rectangle:
     """
     Class Rectangle with attrs width and height
     """
