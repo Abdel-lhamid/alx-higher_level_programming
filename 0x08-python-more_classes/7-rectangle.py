@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module 55555-rectangle
+Module 7-rectangle
 Contains class Rectangle with private attribute width and height,
 public area and perimeter methods, and allows printing, and delete
 """
@@ -10,10 +10,14 @@ class Rectangle:
     """
     Class Rectangle with attrs width and height
     """
+    number_of_instances = 0
+    print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         """init rect"""
         self.width = width
         self.height = height
+        type(self).number_of_instances += 1
 
     @property
     def width(self):
@@ -54,10 +58,10 @@ class Rectangle:
         return (2 * self.__width) + (2 * self.height)
 
     def __str__(self):
-        """ Prints rectangle with #'s """
+        """ Prints rectangle with print symbol """
         if self.__width == 0 or self.__height == 0:
             return ""
-        pic = "\n".join(["#" * self.__width for rows in range(self.__height)])
+        pic = "\n".join([self.__print_symbol * self.__width for rows in range(self.__height)])
         return pic
 
     def __repr__(self):
@@ -67,3 +71,4 @@ class Rectangle:
     def __del__(self):
         """prints after deletion of an intence of class"""
         print("Bye rectangle...")
+        type(self).number_of_instances -= 1
