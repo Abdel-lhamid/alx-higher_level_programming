@@ -59,4 +59,3 @@ class Rectangle:
             return ""
         pic = "\n".join(["#" * self.__width for rows in range(self.__height)])
         return pic
-
