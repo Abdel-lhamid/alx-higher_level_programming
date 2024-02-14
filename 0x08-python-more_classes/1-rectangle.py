@@ -9,7 +9,7 @@ with private attribute width and height
 class Rectangle:
     """
     Defines class rectangle with private attribute width and height
-    
+
     Args:
         width (int): width
         height (int): height
