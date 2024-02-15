@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-add-integer
+Module 0-add-integer
 Methode to return int sum of 2 ints
 """
 
