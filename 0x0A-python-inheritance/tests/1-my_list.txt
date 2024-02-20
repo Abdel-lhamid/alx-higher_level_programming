@@ -1,0 +1,23 @@
+# run test with python3 -m doctest -v ./tests/1-my_list.txt
+
+Import Class to test
+>>> MyList = __import__('1-my_list').MyList
+
+Succ Cases:
+
+Test if Myclass is a child of List:
+>>> type(MyList())
+<class '1-my_list'
+
+Test ints:
+>>> my_list = MyList()
+>>> my_list.append(10)
+>>> my_list.append(34)
+>>> my_list.append(-32)
+>>> print(my_list)
+[10, 34, -32]
+>>> my_list.print_sorted()
+[-32, 10, 34]
+
+>>> sec_li = MyList()
+
