@@ -7,7 +7,10 @@
 
 
 def read_file(filename=""):
-    with open(filename, encoding="utf-8") as f:
-        read_data = f.read()
-        print(read_data)
-        f.closed
+    """
+    a function that reads and prints the content of a file
+    args:
+        filename: the file to read
+    """
+    with open(filename, mode="r", encoding="utf-8") as f:
+        print(f.read())
