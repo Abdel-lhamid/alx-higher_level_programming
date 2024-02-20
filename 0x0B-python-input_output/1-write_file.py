@@ -4,6 +4,8 @@
     funcs:
             write_file(filename="", text="")
 """
+
+
 def write_file(filename="", text=""):
     """
     function that writes to a file the text given
@@ -17,5 +19,4 @@ def write_file(filename="", text=""):
             the number of chars writen in the file
     """
     with open(filename, mode="w+", encoding="utf-8") as f:
-        f.write(text)
-    return len(text)
+       return (f.write(text))
