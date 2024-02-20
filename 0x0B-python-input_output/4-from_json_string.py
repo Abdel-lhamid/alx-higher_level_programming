@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import json
 """
     Module 04 from_json_string
     funcs:
@@ -14,4 +13,5 @@ def from_json_string(my_str):
     Args:
         my_str: the json format object to convert
     """
+    import json
     return (json.loads(my_str))

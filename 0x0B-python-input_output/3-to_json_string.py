@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import json
 """
     Module 03 to_json_string
     funcs:
@@ -15,4 +14,5 @@ def to_json_string(my_obj):
     Args:
         my_obj: an object
     """
+    import json
     return (json.dumps(my_obj))
