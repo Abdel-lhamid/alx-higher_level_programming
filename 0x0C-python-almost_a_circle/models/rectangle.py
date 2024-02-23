@@ -6,6 +6,7 @@
 
 from models.base import Base
 
+
 class Rectangle(Base):
     """
     class Rectangle that inherites from the Base class
@@ -28,27 +29,27 @@ class Rectangle(Base):
     @property
     def width(self):
         """getter"""
-        return self.width
+        return self.__width
 
     @property
     def height(self):
         """getter"""
-        return self.height
+        return self.__height
 
     @property
     def x(self):
         """getter"""
-        return self.x
+        return self.__x
 
     @property
     def y(self):
         """getter"""
-        return self.y
+        return self.__y
 
     @height.setter
     def height(self, value):
         """setter height"""
-        if value is not int:
+        if type(value) is not int:
             raise TypeError("height must be an integer")
         elif value <= 0:
             raise ValueError("height must be > 0")
@@ -57,7 +58,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """setter width"""
-        if value is not int:
+        if type(value) is not int:
             raise TypeError("width must be an integer")
         elif value <= 0:
             raise ValueError("width must be > 0")
@@ -66,7 +67,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """setter x"""
-        if value is not int:
+        if type(value) is not int:
             raise TypeError("x must be an integer")
         elif value < 0:
             raise ValueError("x must be >= 0")
@@ -75,7 +76,7 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """setter y"""
-        if value is not int:
+        if type(value) is not int:
             raise TypeError("y must be an integer")
         elif value < 0:
             raise ValueError("y must be >= 0")
