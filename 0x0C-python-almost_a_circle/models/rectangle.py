@@ -17,6 +17,7 @@ class Rectangle(Base):
         area(self)
         display(self)
         __str__(self)
+        update(self, *args)
     """
     def __init__(self, width, height, x=0, y=0, id=None):
         """
@@ -89,10 +90,27 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def display(self):
-        """function prints in stdout the Rectangle instance with the character #"""
-        for i in range(self.height):
-            print("#" * self.width)
+        """
+        function prints in stdout the Rectangle
+        instance with the character #
+        """
+        print('\n' * self.__y + (
+              ' ' * self.__x + '#' * self.width + '\n') * self.__height,
+              end='')
 
     def __str__(self):
         """returns [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
-        return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(self.id, self.__x, self.__y, self.__width, self.__height)
+        return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}\
+                ".format(self.id, self.__x, self.__y, self.__width, self.__height)
+
+    def update(self, *args, **kwargs):
+        """
+        method def update(self, *args): that assigns an argument to each attribute
+        """
+        funcs = ["id", "width", "height", "x", "y"]
+        if args:
+            for i in range(args):
+                setattr(self, funcs[i], args[i])
+        else:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
