@@ -18,6 +18,7 @@ class Rectangle(Base):
         display(self)
         __str__(self)
         update(self, *args)
+        to_dictionary(self)
     """
     def __init__(self, width, height, x=0, y=0, id=None):
         """
@@ -114,3 +115,16 @@ class Rectangle(Base):
         else:
             for k, v in kwargs.items():
                 setattr(self, k, v)
+
+    def to_dictionary(self):
+        """
+        A function that returns the dictionary presentation of an obj
+        """
+        dic = {}
+        list_attrs = ['x', 'y', "id", "height", "width"]
+        list_vals = [self.x, self.y, self.id, self.height, self.width]
+
+        for k, v in zip(list_attrs, list_vals):
+            dic[k] = v
+
+        return dic
