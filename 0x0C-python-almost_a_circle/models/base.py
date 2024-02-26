@@ -6,6 +6,7 @@
 import json
 import os
 import csv
+import turtle
 
 
 class Base():
@@ -142,3 +143,36 @@ class Base():
         """
         hat opens a window and draws all the Rectangles and Squares
         """
+
+        screen = turtle.Screen()
+        screen.title("Drawing Rectangles and Squares")
+        screen.bgcolor("white")
+
+        pen = turtle.Turtle()
+        pen.speed(2)
+
+        for rectangle in list_rectangles:
+            pen.penup()
+            pen.goto(rectangle.x, rectangle.y)
+            pen.pendown()
+            pen.color("blue")  # You can customize the color
+            pen.begin_fill()
+            for _ in range(2):
+                pen.forward(rectangle.width)
+                pen.left(90)
+                pen.forward(rectangle.height)
+                pen.left(90)
+            pen.end_fill()
+
+        for square in list_squares:
+            pen.penup()
+            pen.goto(square.x, square.y)
+            pen.pendown()
+            pen.color("red")  # You can customize the color
+            pen.begin_fill()
+            for _ in range(4):
+                pen.forward(square.size)
+                pen.left(90)
+            pen.end_fill()
+
+        screen.mainloop()
