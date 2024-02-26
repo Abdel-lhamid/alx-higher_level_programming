@@ -95,9 +95,9 @@ class Rectangle(Base):
         function prints in stdout the Rectangle
         instance with the character #
         """
-        print('\n' * self.__y + '\n'+ (
-            ' ' * self.__x + '#' * self.width + '\n') * self.__height,
-            end='')
+        print("\n" * self.__y +
+              "\n".join(" " * self.__x + "#" * self.__width
+                        for i in range(self.__height)))
 
     def __str__(self):
         """returns [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
