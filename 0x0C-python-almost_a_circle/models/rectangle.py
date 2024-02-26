@@ -112,7 +112,7 @@ class Rectangle(Base):
         """
         funcs = ["id", "width", "height", "x", "y"]
         if args:
-            for i in range(args):
+            for i in range(len(args)):
                 setattr(self, funcs[i], args[i])
         else:
             for k, v in kwargs.items():
