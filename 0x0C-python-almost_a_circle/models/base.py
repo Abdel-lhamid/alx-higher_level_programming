@@ -155,7 +155,7 @@ class Base():
             pen.penup()
             pen.goto(rectangle.x, rectangle.y)
             pen.pendown()
-            pen.color("blue")  # You can customize the color
+            pen.color("blue")
             pen.begin_fill()
             for _ in range(2):
                 pen.forward(rectangle.width)
@@ -168,7 +168,7 @@ class Base():
             pen.penup()
             pen.goto(square.x, square.y)
             pen.pendown()
-            pen.color("red")  # You can customize the color
+            pen.color("red")
             pen.begin_fill()
             for _ in range(4):
                 pen.forward(square.size)
