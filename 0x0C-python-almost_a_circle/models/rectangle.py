@@ -95,7 +95,7 @@ class Rectangle(Base):
         function prints in stdout the Rectangle
         instance with the character #
         """
-        print('\n' * self.__y + (
+        print('\n' * self.__y + '\n'+ (
             ' ' * self.__x + '#' * self.width + '\n') * self.__height,
             end='')
 
