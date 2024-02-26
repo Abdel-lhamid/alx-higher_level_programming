@@ -96,17 +96,19 @@ class Rectangle(Base):
         instance with the character #
         """
         print('\n' * self.__y + (
-              ' ' * self.__x + '#' * self.width + '\n') * self.__height,
-              end='')
+            ' ' * self.__x + '#' * self.width + '\n') * self.__height,
+            end='')
 
     def __str__(self):
         """returns [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}\
-                ".format(self.id, self.__x, self.__y, self.__width, self.__height)
+                ".format(self.id, self.__x, self.__y,
+                         self.__width, self.__height)
 
     def update(self, *args, **kwargs):
         """
-        method def update(self, *args): that assigns an argument to each attribute
+        method def update(self, *args): that assigns
+        an argument to each attribute
         """
         funcs = ["id", "width", "height", "x", "y"]
         if args:

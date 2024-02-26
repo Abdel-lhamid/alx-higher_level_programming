@@ -51,6 +51,7 @@ class Square(Rectangle):
         else:
             for k, v in kwargs.items():
                 setattr(self, k, v)
+
     def to_dictionary(self):
         """
         A function that returns the dictionary presentation of an obj
