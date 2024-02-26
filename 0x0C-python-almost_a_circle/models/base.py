@@ -5,6 +5,7 @@
 """
 import json
 import os
+import csv
 
 
 class Base():
@@ -18,6 +19,9 @@ class Base():
             save_to_file(cls, list_objs)
             from_json_string(json_string)
             create(cls, **dictionary)
+            save_to_file_csv(cls, list_objs)
+            load_from_file_csv(cls)
+            draw(list_rectangles, list_squares)
     """
     __nb_object = 0
 
@@ -94,3 +98,47 @@ class Base():
                 instances.append(cls.create(**dic))
         return instances
 
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        method that saves list to csv file
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'w', newline='') as f:
+            writer = csv.writer(f)
+            for ob in list_objs:
+                if cls.__name__ == "Rectangle":
+                    writer.writerow([ob.id, ob.width, ob.height, ob.x, ob.y])
+                if cls.__name__ == "Square":
+                    writer.writerow([ob.id, ob.size, ob.x, ob.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        method that reads from csv file
+        """
+        list_objs = []
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'r', newline='') as f:
+            reader = csv.reader(f)
+            for row in reader:
+                if cls.__name__ == "Rectangle":
+                    dic = {"id": int(row[0]),
+                           "width": int(row[1]),
+                           "height": int(row[2]),
+                           "x": int(row[3]),
+                           "y": int(row[4])}
+                if cls.__name__ == "Square":
+                    dic = {"id": int(row[0]),
+                           "size": int(row[1]),
+                           "x": int(row[2]),
+                           "y": int(row[3])}
+                obj = cls.create(**dic)
+                list_objs.append(obj)
+        return list_objs
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        hat opens a window and draws all the Rectangles and Squares
+        """
