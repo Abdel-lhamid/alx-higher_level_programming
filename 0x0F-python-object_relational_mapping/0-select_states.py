@@ -6,20 +6,14 @@ select all states from the table states on the given db
 
 import MySQLdb
 from sys import argv
-
+from exec_query import execquery
 
 if __name__ == "__main__":
-    # create db connection
-    db = MySQLdb.connect(host="localhost",
-                         port=3306, user=argv[1],
-                         passwd=argv[2], db=argv[3])
-    # cursor
-    cursor = db.cursor()
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
-    res = cursor.fetchall()
+
+    query= "SELECT * FROM states ORDER BY id ASC"
+    res = execquery("localhost",
+                    3306, argv[1],
+                    argv[2], argv[3], query)
     # print
     for row in res:
         print(row)
-
-    cursor.close()
-    db.close()
