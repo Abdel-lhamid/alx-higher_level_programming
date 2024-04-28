@@ -16,6 +16,6 @@ if __name__ == "__main__":
 
     # query python instances in database
     res = session.query(State.name, City.id, City.name).filter(
-            State.id == City.state_id).order_by(State.id)
+            State.id == City.state_id).order_by(City.id)
     for r in res:
         print("{:s}: ({:d}) {:s}".format(r[0], r[1], r[2]))
