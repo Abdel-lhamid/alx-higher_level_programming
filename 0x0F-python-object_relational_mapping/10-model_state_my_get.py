@@ -14,7 +14,7 @@ if __name__ == "__main__":
     session = make_session(argv[1], argv[2], argv[3])
 
     # query python instances in database
-    res = session.query(State).filter_by(State.name=argv[4]).first()
+    res = session.query(State).filter_by(name=argv[4]).first()
     # print
     if res:
         print(res.id)
