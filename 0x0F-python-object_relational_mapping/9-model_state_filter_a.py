@@ -14,7 +14,8 @@ if __name__ == "__main__":
     session = make_session(argv[1], argv[2], argv[3])
 
     # query python instances in database
-    res = session.query(State).filter(State.name.like('%a%')).order_by(State.id)
+    res = session.query(State).filter(
+            State.name.like('%a%')).order_by(State.id)
     # print
     for state in res:
         print(state.id, state.name, sep=": ")
