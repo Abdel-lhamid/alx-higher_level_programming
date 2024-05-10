@@ -3,7 +3,7 @@
 given URL, email as params, send POST req to URL, display response body utf-8
 """
 from sys import argv
-from urllib import parse,request
+from urllib import parse, request
 
 
 if __name__ == "__main__":
